@@ -9,3 +9,11 @@
 
 ## ERD
 ![](./ERD.png)
+
+
+## Planned deliverables
+* Hosted on a webserver.
+* Postgres DB. 
+* Simple front-end. 
+* Some basic content.
+
