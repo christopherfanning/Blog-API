@@ -8,7 +8,7 @@
 * As an unprivileged user I should be able to read all the posts but not make any changes. 
 
 ## ERD
-![](./ERD.png)
+![](./README/ERD.png)
 
 
 ## Planned deliverables
