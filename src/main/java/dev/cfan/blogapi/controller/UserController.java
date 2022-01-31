@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/users/")
+    @GetMapping("/")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
