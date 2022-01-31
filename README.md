@@ -17,3 +17,8 @@
 * Simple front-end. 
 * Some basic content.
 
+## If I have time:
+![](./README/ambitious.erd.png)
+* Roles and permissions admin user can create posts. 
+* Regular users can comment
+* Unauthenticated can only read
