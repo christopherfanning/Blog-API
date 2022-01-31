@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "posts")
 @NoArgsConstructor
 @Getter @Setter
 public class Post {
