@@ -1,5 +1,6 @@
 package dev.cfan.blogapi.security;
 
+// Stolen from https://git.generalassemb.ly/sureshmelvinsigera/Java-Spring/blob/master/README.md
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
