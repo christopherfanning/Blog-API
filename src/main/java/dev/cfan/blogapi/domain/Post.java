@@ -13,5 +13,5 @@ public class Post {
 
     @Column
     private String postContent;
-    
+
 }
