@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/user/")
+    @GetMapping("/users/")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
