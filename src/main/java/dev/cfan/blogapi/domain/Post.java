@@ -21,4 +21,7 @@ public class Post {
     @Column
     private String postContent;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    Category category;
 }
