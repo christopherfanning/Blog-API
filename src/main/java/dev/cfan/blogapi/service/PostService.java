@@ -5,6 +5,8 @@ import dev.cfan.blogapi.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostService {
 
@@ -21,4 +23,7 @@ public class PostService {
         return postRepository.save(post);
     }
 
+    public List<Post> getPosts() {
+        return postRepository.findAll();
+    }
 }
