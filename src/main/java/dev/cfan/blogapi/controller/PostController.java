@@ -8,20 +8,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/api")
 public class PostController {
 
 
     @Autowired
     PostService postService;
 
-    @PostMapping("/new")
+    @PostMapping("/posts/new")
     public Post createPost(@RequestBody Post post){
        return postService.createPost(post);
     }
 
-    @GetMapping("/")
+    @GetMapping("/posts")
     public List<Post> getPosts(){
         return postService.getPosts();
+    }
+
+    @PostMapping("/categories/{categoryId}/posts")
+    public Post createCategoryPost(@RequestBody Post post, @PathVariable(value = "categoryId") Long categoryId){
+        return postService.createCategoryPost(post, categoryId);
     }
 }

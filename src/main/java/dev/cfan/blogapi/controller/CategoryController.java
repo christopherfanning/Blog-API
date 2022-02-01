@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/api")
 public class CategoryController {
 
     @Autowired
     CategoryService categoryService;
 
 
-    @PostMapping("/new")
+    @PostMapping("/categories/new")
     public Category createCategory(@RequestBody Category category){
         return categoryService.createCategory(category);
     }
 
 
-    @GetMapping("/{categoryId}")
+    @GetMapping("/categories/{categoryId}")
     public List<Post> getCategoryPosts(@PathVariable(value = "categoryId") Long categoryId){
         return categoryService.getCategoryPosts(categoryId);
     }
