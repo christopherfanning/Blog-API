@@ -22,3 +22,8 @@
 * Roles and permissions admin user can create posts. 
 * Regular users can comment
 * Unauthenticated can only read
+
+## Installation instructions:
+* You'll need to create a postgres database
+* Configure the application.properties to a privileged user on that database
+* Then run the application, and you should be able to test the endpoints.
