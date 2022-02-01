@@ -1,7 +1,8 @@
-package dev.cfan.blogapi.security;
+package dev.cfan.blogapi.service;
 
 // Stolen From : https://git.generalassemb.ly/sureshmelvinsigera/Java-Spring/blob/master/README.md
 
+import dev.cfan.blogapi.domain.JpaUser;
 import dev.cfan.blogapi.domain.User;
 import dev.cfan.blogapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class MyUserDetailsService implements UserDetailsService {
+public class JpaUserService implements UserDetailsService {
 
     private UserService userService;
 
@@ -24,6 +25,6 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userService.findUserByEmail(email);
-        return new MyUserDetails(user);
+        return new JpaUser(user);
     }
 }

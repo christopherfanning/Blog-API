@@ -2,6 +2,7 @@ package dev.cfan.blogapi.security;
 
 //  Stolen from : https://git.generalassemb.ly/sureshmelvinsigera/Java-Spring/blob/master/README.md
 
+import dev.cfan.blogapi.service.JpaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,7 +21,7 @@ import java.io.IOException;
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired
-    private MyUserDetailsService myUserDetailsService;
+    private JpaUserService JPAUserService;
 
     @Autowired
     private JWTUtils jwtUtils;
@@ -45,7 +46,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         //Token is being passed to JwtUtil class for details extraction
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.myUserDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = this.JPAUserService.loadUserByUsername(username);
             if (jwtUtils.validateToken(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken
                         usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(

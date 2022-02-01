@@ -17,11 +17,13 @@ public class PostController {
 
     @PostMapping("/posts/new")
     public Post createPost(@RequestBody Post post){
+        // Uncategorized post.
        return postService.createPost(post);
     }
 
     @GetMapping("/posts")
     public List<Post> getPosts(){
+        //get all the posts
         return postService.getPosts();
     }
 

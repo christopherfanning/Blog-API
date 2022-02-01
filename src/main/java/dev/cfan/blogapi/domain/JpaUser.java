@@ -1,4 +1,4 @@
-package dev.cfan.blogapi.security;
+package dev.cfan.blogapi.domain;
 
 // Stolen from : https://git.generalassemb.ly/sureshmelvinsigera/Java-Spring/blob/master/README.md
 
@@ -10,14 +10,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class MyUserDetails implements UserDetails {
+public class JpaUser implements UserDetails {
 
     private User user;
     private String userName;
     private String password;
     private String emailAddress;
 
-    public MyUserDetails(User user) {
+    public JpaUser(User user) {
         this.user = user;
     }
 
