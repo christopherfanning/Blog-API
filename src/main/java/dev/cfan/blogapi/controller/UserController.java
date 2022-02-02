@@ -15,19 +15,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
 
-    @PostMapping("/register")
-    public User registerUser(@RequestBody User user){
-        return userService.createUser(user);
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody AuthenticationRequest authenticationRequest) {
-        System.out.println("calling loginUser ==>");
-        return userService.loginUser(authenticationRequest);
-    }
 }
