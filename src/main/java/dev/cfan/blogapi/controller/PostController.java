@@ -3,6 +3,7 @@ package dev.cfan.blogapi.controller;
 import dev.cfan.blogapi.domain.Post;
 import dev.cfan.blogapi.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +38,14 @@ public class PostController {
             @PathVariable(value = "categoryId") Long categoryId,
             @PathVariable(value = "postId") Long postId){
         return postService.deleteCategoryPost(categoryId, postId);
+    }
+
+    @PutMapping("/categories/{categoryId}/posts/{postId}")
+    public Post updateCategoryPost(
+            @PathVariable(value = "categoryId") Long categoryId,
+            @PathVariable(value = "postId") Long postId,
+            @RequestBody Post post){
+        System.out.println("Put mapping taking place!");
+        return postService.updateCategoryPost(categoryId, postId, post);
     }
 }

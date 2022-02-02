@@ -26,7 +26,7 @@ public class PostService {
     CategoryRepository categoryRepository;
 
 
-    public Post createPost(Post post){
+    public Post createPost(Post post) {
         return postRepository.save(post);
     }
 
@@ -36,7 +36,7 @@ public class PostService {
 
     public Post createCategoryPost(Post post, Long categoryId) {
         Optional<Category> category = categoryRepository.findById(categoryId);
-        if(category.isEmpty()){
+        if (category.isEmpty()) {
             throw new NotFoundException("The Category with ID " + categoryId + " does not exist.  Please create it first. ");
         }
 
@@ -49,17 +49,37 @@ public class PostService {
     public Post deleteCategoryPost(Long categoryId, Long postId) {
         // Check for categoryId
         Optional<Category> category = categoryRepository.findById(categoryId);
-        if(category.isEmpty()){
+        if (category.isEmpty()) {
             throw new NotFoundException("Category with id " + categoryId + "not found, therefor there cannot be a post associated with it. Delete Failed.");
         }
         // Check for postId
         Optional<Post> post = postRepository.findById(postId);
-        if (post.isEmpty()){
+        if (post.isEmpty()) {
             throw new NotFoundException("There is no post with id " + postId + " in category with id " + categoryId + ". DeletePost failed.");
         }
         // delete that post
         postRepository.deleteById(postId);
         // return that deleted post
         return post.get();
+    }
+
+    public Post updateCategoryPost(Long categoryId, Long postId, Post post) {
+        // get the category
+        Optional<Category> category = categoryRepository.findById(categoryId);
+        if (category.isEmpty()) {
+            throw new NotFoundException("This category with id: " + categoryId + " doesn't exist. Can't update it's post. Update failed.");
+        }
+        // get the old post
+        Optional<Post> oldPost = postRepository.findById(postId);
+        if (oldPost.isEmpty()) {
+            throw new NotFoundException("The post with id: " + postId + " does not exist. Update Failed.");
+        }
+        // update the contents of the old post with the new stuff.
+        oldPost.get().setTitle(post.getTitle());
+        oldPost.get().setContent(post.getContent());
+        return postRepository.save(oldPost.get());
+
+
+
     }
 }
