@@ -35,12 +35,16 @@
 
 ## Endpoints documentation
 
-| Request Type | URL             | Request Body   | Request Header | Function            | Access |
-|--------------|-----------------|----------------|----------------|---------------------|--------|
-| GET          | /api/categories | None           | None           | List all Categories | Any    |
-| POST         | /api/categories | title, content | JPA Token      | Create new category | Author |
-|              |                 |                |                |                     |        |
-|              |                 |                |                |                     |        |
-|              |                 |                |                |                     |        |
-|              |                 |                |                |                     |        |
-|              |                 |                |                |                     |        |
+| Request Type | URL                             | Request Body   | Request Header | Function                | Access |
+|--------------|---------------------------------|----------------|----------------|-------------------------|--------|
+| GET          | /api/categories                 | None           | None           | List all Categories     | Any    |
+| POST         | /api/categories                 | title, content | JPA Token      | Create new category     | Author |
+| DELETE       | /api/categories/{id}            | None           | JPA Token      | Remove a category       | Admin  |
+| GET          | /api/categories/{id}/posts/{id} | None           | None           | Get a specific post     | Any    |
+| POST         | /api/categories/{id}/posts      | title, content | JPA Token      | Create A new post       | Author |
+| PUT          | /api/categories/{id}/posts/{id} | title, content | JPA Token      | Update an existing post | Author |
+| DELETE       | /api/categories/{id}/posts/{id} | None           | JPA Token      | Delete a post           | Author |
+| GET          | /api/users                      | None           | None           | Shows a list of users   | Any    |
+| GET          | /api/{username}/posts           | None           | None           | Shows all user posts    | Any    |
+| Delete       | /api/{username}                 | None           | None           | Delete a user           | Admin  |
+|              |                                 |                |                |                         |        |
