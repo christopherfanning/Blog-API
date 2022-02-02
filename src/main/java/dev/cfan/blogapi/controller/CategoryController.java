@@ -22,6 +22,11 @@ public class CategoryController {
     }
 
 
+    @GetMapping("/categories")
+    public List<Category> getCategories(){
+        return categoryService.getCategories();
+    }
+
     @GetMapping("/categories/{categoryId}")
     public List<Post> getCategoryPosts(@PathVariable(value = "categoryId") Long categoryId){
         return categoryService.getCategoryPosts(categoryId);
