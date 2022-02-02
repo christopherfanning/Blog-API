@@ -48,3 +48,9 @@
 | GET          | /api/{username}/posts           | None           | None           | Shows all user posts    | Any    |
 | Delete       | /api/{username}                 | None           | None           | Delete a user           | Admin  |
 |              |                                 |                |                |                         |        |
+
+### Technologies Used
+![](./README/spring-logo.svg)
+![](./README/javalogo.png) ![](./README/lombok.png) ![](./README/junit.png) ![](./README/postgres.png)
+![](./README/lombok.png)
+<img src="./README/spring-logo.svg" width="100"/>
