@@ -22,6 +22,9 @@ public class Post {
     @Column
     private String content;
 
+    @Column
+    private String author;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id")
