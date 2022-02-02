@@ -40,7 +40,6 @@ public class User {
         this.email = email;
     }
 
-    @JsonIgnore
     @OneToMany(mappedBy = "user")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Post> post;

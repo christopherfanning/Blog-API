@@ -1,11 +1,14 @@
 package dev.cfan.blogapi.service;
 
 import dev.cfan.blogapi.domain.Category;
+import dev.cfan.blogapi.domain.JpaUser;
 import dev.cfan.blogapi.domain.Post;
+import dev.cfan.blogapi.exception.InformationExistException;
 import dev.cfan.blogapi.exception.NotFoundException;
 import dev.cfan.blogapi.repository.CategoryRepository;
 import dev.cfan.blogapi.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,15 +37,25 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public Post createCategoryPost(Post post, Long categoryId) {
+    public Post createCategoryPost(Post postObject, Long categoryId) {
+        JpaUser userDetails = (JpaUser) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
         Optional<Category> category = categoryRepository.findById(categoryId);
+
         if (category.isEmpty()) {
-            throw new NotFoundException("The Category with ID " + categoryId + " does not exist.  Please create it first. ");
+            throw new NotFoundException(
+                    "category with id " + categoryId + " not belongs to this user or category does not exist");
         }
+        Post post = postRepository.findByTitleAndUserId(
+                postObject.getTitle(),
+                userDetails.getUser().getId());
+        if (post != null) {
+            throw new InformationExistException("recipe with name " + post.getTitle() + " already exists");
+        }
+        postObject.setUser(userDetails.getUser());
+        postObject.setCategory(category.get());
 
-        post.setCategory(category.get());
-
-        return postRepository.save(post);
+        return postRepository.save(postObject);
 
     }
 
@@ -78,7 +91,6 @@ public class PostService {
         oldPost.get().setTitle(post.getTitle());
         oldPost.get().setContent(post.getContent());
         return postRepository.save(oldPost.get());
-
 
 
     }
