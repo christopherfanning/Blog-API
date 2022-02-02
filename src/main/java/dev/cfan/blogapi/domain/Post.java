@@ -19,7 +19,7 @@ public class Post {
     private String title;
 
     @Column
-    private String postContent;
+    private String content;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

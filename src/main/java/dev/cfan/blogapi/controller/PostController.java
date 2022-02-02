@@ -31,4 +31,11 @@ public class PostController {
     public Post createCategoryPost(@RequestBody Post post, @PathVariable(value = "categoryId") Long categoryId){
         return postService.createCategoryPost(post, categoryId);
     }
+
+    @DeleteMapping("/categories/{categoryId}/posts/{postId}")
+    public Post deleteCategoryPost(
+            @PathVariable(value = "categoryId") Long categoryId,
+            @PathVariable(value = "postId") Long postId){
+        return postService.deleteCategoryPost(categoryId, postId);
+    }
 }

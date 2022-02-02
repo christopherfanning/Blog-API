@@ -45,4 +45,21 @@ public class PostService {
         return postRepository.save(post);
 
     }
+
+    public Post deleteCategoryPost(Long categoryId, Long postId) {
+        // Check for categoryId
+        Optional<Category> category = categoryRepository.findById(categoryId);
+        if(category.isEmpty()){
+            throw new NotFoundException("Category with id " + categoryId + "not found, therefor there cannot be a post associated with it. Delete Failed.");
+        }
+        // Check for postId
+        Optional<Post> post = postRepository.findById(postId);
+        if (post.isEmpty()){
+            throw new NotFoundException("There is no post with id " + postId + " in category with id " + categoryId + ". DeletePost failed.");
+        }
+        // delete that post
+        postRepository.deleteById(postId);
+        // return that deleted post
+        return post.get();
+    }
 }
