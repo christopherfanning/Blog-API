@@ -33,6 +33,7 @@ public class CategoryService {
     }
 
     public Category deleteCategory(Long categoryId) {
+        System.out.println("Calling delete from categoryService");
         Optional<Category> category = categoryRepository.findById(categoryId);
         if (category.isEmpty()){
             throw new NotFoundException("The category with id " + categoryId + " is not found. Cannot delete.");
