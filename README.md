@@ -50,7 +50,8 @@
 |              |                                 |                |                |                         |        |
 
 ### Technologies Used
-![](./README/spring-logo.svg)
-![](./README/javalogo.png) ![](./README/lombok.png) ![](./README/junit.png) ![](./README/postgres.png)
-![](./README/lombok.png)
-<img src="./README/spring-logo.svg" width="100"/>
+<img height="200" src="./README/spring-logo.svg"/>
+<img height="200" src="/home/chris/sei/projects/Blog-API/README/junit.png"/>
+<img height="200" src="/home/chris/sei/projects/Blog-API/README/lombok.png"/>
+<img height="200" src="/home/chris/sei/projects/Blog-API/README/postgres.png"/>
+<img height="200" src="/home/chris/sei/projects/Blog-API/README/spring-logo.svg"/>
