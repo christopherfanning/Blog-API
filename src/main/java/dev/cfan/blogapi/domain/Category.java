@@ -30,9 +30,9 @@ public class Category {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Post> postList;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    @JsonIgnore
+//    private User user;
 }
 

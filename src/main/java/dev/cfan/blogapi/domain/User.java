@@ -26,6 +26,11 @@ public class User {
     @Column
     private String name;
 
+    public void setName(String name) {
+        name = name.toLowerCase();
+        this.name = name;
+    }
+
     @Column
     private String email;
 

@@ -42,6 +42,8 @@ public class PostService {
                 .getPrincipal();
         Optional<Category> category = categoryRepository.findById(categoryId);
 
+        // TODO Create an Author field and set it to the username of user who creates the post.
+
         if (category.isEmpty()) {
             throw new NotFoundException(
                     "category with id " + categoryId + " not belongs to this user or category does not exist");
