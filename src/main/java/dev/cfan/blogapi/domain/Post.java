@@ -1,5 +1,6 @@
 package dev.cfan.blogapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +22,12 @@ public class Post {
     @Column
     private String content;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id")
-    Category category;
+    private Category category;
+
+//    @ManyToOne
+//    @JoinColumn(name = "category_id")
+//    Category category;
 }

@@ -37,7 +37,7 @@ public class PostService {
     public Post createCategoryPost(Post post, Long categoryId) {
         Optional<Category> category = categoryRepository.findById(categoryId);
         if(category.isEmpty()){
-            throw new NotFoundException("The Category with ID " + categoryId + " does not exits.  Please create it first. ");
+            throw new NotFoundException("The Category with ID " + categoryId + " does not exist.  Please create it first. ");
         }
 
         post.setCategory(category.get());

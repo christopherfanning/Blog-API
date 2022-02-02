@@ -26,7 +26,6 @@ public class Category {
     @Column
     private String description;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "category", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Post> postList;

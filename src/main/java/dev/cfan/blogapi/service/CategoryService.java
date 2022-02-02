@@ -24,12 +24,12 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public List<Post> getCategoryPosts(Long categoryId) {
-        return postRepository.findByCategoryId(categoryId);
-    }
-
     public List<Category> getCategories() {
         return categoryRepository.findAll();
+    }
+
+    public List<Post> getCategoryPosts(Long categoryId) {
+        return postRepository.findByCategoryId(categoryId);
     }
 
     public Category deleteCategory(Long categoryId) {
