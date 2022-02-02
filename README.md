@@ -49,7 +49,7 @@
 | Delete       | /api/{username}                 | None           | None           | Delete a user           | Admin  |
 |              |                                 |                |                |                         |        |
 
-### Technologies Used
+## Technologies Used
 <img height="100" style="display: inline" src="./README/spring-logo.svg"/>
 <img height="100" style="display: inline" src="./README/junit.png"/>
 <img height="100" style="display: inline" src="./README/lombok.png"/>
