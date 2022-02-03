@@ -37,7 +37,6 @@ public class AuthService {
     private PasswordEncoder passwordEncoder;
 
     public User createUser(User userObject) {
-        System.out.println("service calling createUser ==>");
         if (!userRepository.existsByEmail(userObject.getEmail())) {
             userObject.setPassword(passwordEncoder.encode(userObject.getPassword()));
             return userRepository.save(userObject);
@@ -48,7 +47,6 @@ public class AuthService {
     }
 
     public ResponseEntity<?> loginUser(AuthenticationRequest authenticationRequest) {
-        System.out.println("service calling loginUser ==>");
         authenticationManager.authenticate(new
                 UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
         final UserDetails userDetails = jpaUserService.loadUserByUsername(authenticationRequest.getUsername());

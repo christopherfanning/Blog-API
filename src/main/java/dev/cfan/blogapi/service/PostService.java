@@ -76,6 +76,7 @@ public class PostService {
         postRepository.deleteById(postId);
         // return that deleted post
         return post.get();
+        // TODO Update to only allow deletions if the user created it.
     }
 
     public Post updateCategoryPost(Long categoryId, Long postId, Post post) {

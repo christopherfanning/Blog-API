@@ -13,6 +13,11 @@
 
 ![](./README/ERD.png)
 
+## Main Features
+* Password Authentication / JWT Authorization
+* User roles, ADMIN, AUTHOR, USER
+* 
+
 ## Planned deliverables
 
 * Hosted on a webserver.

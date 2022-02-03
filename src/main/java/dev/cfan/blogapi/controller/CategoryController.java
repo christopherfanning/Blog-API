@@ -16,7 +16,7 @@ public class CategoryController {
     CategoryService categoryService;
 
 
-    @PostMapping("/new/categories")
+    @PostMapping("/categories")
     public Category createCategory(@RequestBody Category category){
         return categoryService.createCategory(category);
     }
@@ -32,7 +32,7 @@ public class CategoryController {
         return categoryService.getCategoryPosts(categoryId);
     }
 
-    @DeleteMapping("/delete/categories/{categoryId}" )
+    @DeleteMapping("/categories/{categoryId}" )
     public Category deleteCategory(@PathVariable(value = "categoryId") Long categoryId){
         return categoryService.deleteCategory(categoryId);
     }

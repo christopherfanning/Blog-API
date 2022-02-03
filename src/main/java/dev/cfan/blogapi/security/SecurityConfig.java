@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // only allowed urls without JWT
         http.authorizeRequests()
 //                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/api/new/**").hasAnyRole("AUTHOR", "ADMIN")
+                .antMatchers("/api/**").hasAnyRole("AUTHOR", "ADMIN")
                 .antMatchers(HttpMethod.POST,
                         "/users/hello",
                         "/api/new/comment").hasAnyRole("USER","ADMIN")

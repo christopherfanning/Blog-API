@@ -33,6 +33,8 @@ public class CategoryService {
     }
 
     public Category deleteCategory(Long categoryId) {
+        // TODO Update to only delete if it's empty.
+
         System.out.println("Calling delete from categoryService");
         Optional<Category> category = categoryRepository.findById(categoryId);
         if (category.isEmpty()){
