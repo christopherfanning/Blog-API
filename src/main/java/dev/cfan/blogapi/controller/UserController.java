@@ -15,8 +15,14 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/hello")
+    public String helloUser(){
+        return "Hello User!";
+    }
+
     @GetMapping("")
     public List<User> getAllUsers(){
+        System.out.println("Hitting the getAllUsers endpoint. ");
         return userService.getAllUsers();
     }
 

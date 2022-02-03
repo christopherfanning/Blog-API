@@ -51,10 +51,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // only allowed urls without JWT
         http.authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/users/hello").hasAnyRole("USER","ADMIN")
                 .antMatchers(
                         "/auth/login",
-                        "/auth/register").permitAll()
+                        "/auth/register",
+                        "/users",
+                        "/users/**",
+                        "/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -2,10 +2,7 @@ package dev.cfan.blogapi.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -16,7 +13,9 @@ import java.util.List;
 @Table(name = "users")
 @Getter @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
+//@Data
+//@ToString
 public class User {
 
     @Id
@@ -26,6 +25,7 @@ public class User {
     @Column
     private String name;
 
+    // toLowerCase setter
     public void setName(String name) {
         name = name.toLowerCase();
         this.name = name;
@@ -48,5 +48,10 @@ public class User {
     @OneToMany(mappedBy = "user")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Post> post;
+
+
+    @OneToOne(mappedBy = "user", orphanRemoval = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private Role userRole;
 
 }

@@ -23,8 +23,8 @@ public class JpaUserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userService.findUserByEmail(email);
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+        User user = userService.findUserByName(name);
         return new JpaUser(user);
     }
 }
