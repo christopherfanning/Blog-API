@@ -97,4 +97,19 @@ public class PostService {
 
 
     }
+
+    public Post getCategoryPost(Long categoryId, Long postId) {
+        Optional<Category> category = categoryRepository.findById(categoryId);
+        if (category.isEmpty()) {
+            throw new NotFoundException("This category with id: " + categoryId + " doesn't exist. Can't update it's post. Update failed.");
+        }
+        // get the old post
+        Optional<Post> post = postRepository.findById(postId);
+        if (post.isEmpty()) {
+            throw new NotFoundException("The post with id: " + postId + " does not exist. Update Failed.");
+        }
+
+        return post.get();
+
+    }
 }

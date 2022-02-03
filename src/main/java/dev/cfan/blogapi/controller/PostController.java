@@ -28,6 +28,12 @@ public class PostController {
         return postService.getPosts();
     }
 
+    @GetMapping("/categories/{categoryId}/posts/{postId}")
+    public Post getCategoryPost(@PathVariable(value = "categoryId") Long categoryId,
+                                @PathVariable(value = "postId") Long postId){
+        return postService.getCategoryPost(categoryId, postId);
+    }
+
     @PostMapping("/categories/{categoryId}/posts")
     public Post createCategoryPost(@RequestBody Post post, @PathVariable(value = "categoryId") Long categoryId){
         return postService.createCategoryPost(post, categoryId);
