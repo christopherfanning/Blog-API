@@ -18,4 +18,6 @@ public class AdminController {
         return adminService.addUserToRole(userId, role);
     }
 
+    // TODO delete mappings for everything.
+
 }

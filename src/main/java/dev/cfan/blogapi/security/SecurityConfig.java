@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -52,13 +53,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // only allowed urls without JWT
         http.authorizeRequests()
 //                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/users/hello").hasAnyRole("USER","ADMIN")
-                .antMatchers(
+                .antMatchers("/api/new/**").hasAnyRole("AUTHOR", "ADMIN")
+                .antMatchers(HttpMethod.POST,
+                        "/users/hello",
+                        "/api/new/comment").hasAnyRole("USER","ADMIN")
+                .antMatchers(HttpMethod.POST,
                         "/auth/login",
-                        "/auth/register",
-                        "/users",
-                        "/users/**",
-                        "/**").permitAll()
+                        "/auth/register").permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/**",
+                        "/users/",
+                        "/api/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

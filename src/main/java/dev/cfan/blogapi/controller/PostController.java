@@ -16,7 +16,7 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @PostMapping("/posts/new")
+    @PostMapping("/new/posts/")
     public Post createPost(@RequestBody Post post){
         // Uncategorized post.
        return postService.createPost(post);
