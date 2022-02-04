@@ -10,7 +10,7 @@ sensible ways of getting all the data in a tree'ed format.
 I will be implementing this on a live webserver with a front-end in my spare-time once I can make it more secure. 
 
 
-## ERD - Simple
+## ERD - Simple MVP
 ![](./README/ERD.png)
 
 ## ERD - Actual
@@ -23,13 +23,14 @@ I will be implementing this on a live webserver with a front-end in my spare-tim
 * Posts have an Author
 * Integration tests
 * Test have their own DB and Application.properties
+----
 
 ## Unfinished features
-* Comments should have the author associated.
-* The security pathing for the userRoles is not 100% yet.
-* I want to add dates to the posts and comments.
-* Unit Tests - I currently have none. 
-* Integration Tests, I have very limited test coverage at the moment. 
+- [ ] Comments should have the author associated.
+- [ ] The security pathing for the userRoles is not 100% yet.
+- [ ] I want to add dates to the posts and comments.
+- [ ] Unit Tests - I currently have none. 
+- [ ] Integration Tests, I have very limited test coverage at the moment. 
 
 ## Tricky bits
 * Setting up the roles took a bit of research and troubleshooting.
@@ -38,9 +39,9 @@ I will be implementing this on a live webserver with a front-end in my spare-tim
 
 ## If I have time:
 ![](./README/ambitious.erd.png)
-* Roles and permissions admin user can create posts.(DONE!)
-* Regular users can comment (DONE!)
-* Unauthenticated can only read (DONE-ish!)
+- [x] Roles and permissions admin user can create posts.(DONE!)
+- [x] Regular users can comment (DONE!)
+- [x] Unauthenticated can only read (DONE-ish!)
 
 ## Installation instructions:
 * You'll need to create a postgres database
@@ -73,8 +74,7 @@ I will be implementing this on a live webserver with a front-end in my spare-tim
 ## Questions I Still Have:
 * When building out the front-end I ran into errors. (Blocked by CORS policy.)  It looks like the request needs some kind of header.  I'm sure it's an easy fix. I put it on the back-log since it wasn't a requirement. Need to figure that out.
 * When a token is expired, and the user is trying to get to an end-point that requires no AUTH, something besides an exception should happen. Just serve it up. Don't even bother checking on those. 
-* 
-
+----
 
 ## Endpoints documentation
 
@@ -95,12 +95,12 @@ I will be implementing this on a live webserver with a front-end in my spare-tim
 | POST         | /admin/adduserrole                    | User, Role        | JPA            | Add a role to a user    | Admin  |
 | Post         | /auth/register                        | Name, email, pass | none           | Register a user         | Any    |
 | Post         | /auth/login                           | name, Pass        | none           | Login a user            | ANY    |
-
+----
 ## Planned deliverables
-* Hosted on a webserver.
-* Postgres DB.
-* Simple front-end.
-* Some basic content.
+-[ ] Hosted on a webserver.
+-[x] Postgres DB.
+-[ ] Simple front-end.
+-[ ] Some basic content.
 
 ## Technologies Used
 <img height="100" style="display: inline" src="./README/spring-logo.svg"/>
