@@ -18,6 +18,11 @@ public class AdminController {
         return adminService.addUserToRole(userId, role);
     }
 
+    @GetMapping("/hello")
+        public String adminHello(){
+        return "Hello Admin. How may I serve?";
+
+    }
     // TODO delete mappings for everything.
 
 }

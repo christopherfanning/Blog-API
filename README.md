@@ -10,9 +10,11 @@ sensible ways of getting all the data in a tree'ed format.
 I will be implementing this on a live webserver with a front-end in my spare-time once I can make it more secure. 
 
 
-## ERD
-
+## ERD - Simple
 ![](./README/ERD.png)
+
+## ERD - Actual
+![](./README/actual.png)
 
 ## Main Features
 * Password Authentication / JWT Authorization
@@ -54,6 +56,11 @@ I will be implementing this on a live webserver with a front-end in my spare-tim
 * As an unprivileged user I should be able to read all the posts but not make any changes.
 * As an admin I should be able to delete anything and change users in any way.
 * As a user I should be able to comment on posts, because the internet needs to know.
+
+## Questions I Still Have:
+* When building out the front-end I ran into errors. (Blocked by CORS policy.)  It looks like the request needs some kind of header.  I'm sure it's an easy fix. I put it on the back-log since it wasn't a requirement. Need to figure that out.
+* When a token is expired, and the user is trying to get to an end-point that requires no AUTH, something besides an exception should happen. Just serve it up. Don't even bother checking on those. 
+* 
 
 
 ## Endpoints documentation
