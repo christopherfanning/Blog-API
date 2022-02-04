@@ -64,7 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/users",
                         "/users/*",
                         "/api/*",
-                        "/api/categories").permitAll()
+                        "/api/categories",
+                        "/api/categories/*/posts/*").permitAll()
 //                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
