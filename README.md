@@ -49,13 +49,26 @@ I will be implementing this on a live webserver with a front-end in my spare-tim
 * Then run the application, and you should be able to test the endpoints.
 
 ## User Stories
-* As a user I should be able to log in and list my blog posts.
-* As an author I should be able to update my posts.
-* As an author I should be able to delete my posts.
-* As an author I should be able to create new posts.
-* As an unprivileged user I should be able to read all the posts but not make any changes.
-* As an admin I should be able to delete anything and change users in any way.
-* As a user I should be able to comment on posts, because the internet needs to know.
+* As a AUTHOR I should be able to log in and list my blog posts.
+  * There should be a page that shows the currently logged in user with their posts.
+* As an AUTHOR I should be able to update my posts.
+  * Should only be able to edit posts created by this author.
+* As an AUTHOR I should be able to delete my posts.
+  * This should be only posts created by author.self
+* As an AUTHOR I should be able to create new posts.
+  1. Posts will have a category associated
+  2. Posts will have an author associated
+  3. Can lookup posts by author
+  4. can lookup posts by category
+* As an unprivileged user(rando) I should be able to read all the posts but not make any changes.
+  * Any old rando can browse the site, but they cannot comment or change anything. 
+* As an ADMIN I should be able to delete anything and change users in any way.
+  * ADMINs will have access to all the destructive methods
+  * ADMINs can change users roles
+* As a USER I should be able to comment on posts, because the internet needs to know.
+  * The USER role will be able to leave comments
+  * Comments are associated with posts. 
+  * Post can have many comments
 
 ## Questions I Still Have:
 * When building out the front-end I ran into errors. (Blocked by CORS policy.)  It looks like the request needs some kind of header.  I'm sure it's an easy fix. I put it on the back-log since it wasn't a requirement. Need to figure that out.
